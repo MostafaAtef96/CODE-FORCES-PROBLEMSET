@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <math.h>
+#include <float.h>
+int main(void){
+	unsigned long long m,n,a;
+	unsigned long long flagstonesNumber;
+	scanf("%I64d %I64d %I64d",&m, &n, &a);
+	flagstonesNumber=(ceil((m/(double)a)))*(ceil(n/(double)a));
+	printf("%I64d",flagstonesNumber);
+ 
+	return 0;
+}
