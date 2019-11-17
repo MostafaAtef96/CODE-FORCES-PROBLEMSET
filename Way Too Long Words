@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+ 
+int main() {
+	int arraySize;
+	cin >> arraySize;
+	vector<string> words;
+	string temp;
+	for (int i = 0; i < arraySize; i++) {
+		cin >> temp;
+		words.push_back(temp);
+	}
+	vector<string>::iterator itr;
+	for (itr = words.begin(); itr < words.end(); itr++) {
+		if ((*itr).length() > 10) {
+			cout << (*itr)[0] << (*itr).length() - 2 << (*itr)[(*itr).length() - 1] << "\n";
+		}
+		else {
+			cout << (*itr) << "\n";
+		}
+	}
+}
