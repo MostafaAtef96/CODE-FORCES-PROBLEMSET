@@ -1,0 +1,44 @@
+/*
+The problem can be found in the following link: https://codeforces.com/problemset/problem/158/A
+*/
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+ 
+int main() {
+	int participants, advancingPlace;
+	int temp;
+	vector <int> scores;
+	cin >> participants >> advancingPlace;
+	for (int i = 0; i < participants; i++) {
+		cin >> temp;
+		scores.push_back(temp);
+	}
+	scores.erase(std::remove(begin(scores), end(scores), 0), end(scores));
+	if (scores.empty()) {
+		cout << 0;
+	}
+	else if (scores.size() < advancingPlace) {
+		cout << scores.size();
+	}
+	else if (scores[0] <= advancingPlace && scores[0] != 0) {
+		//cout << count(scores.begin(), scores.end(), scores[0]);
+		vector<int>::reverse_iterator itr;
+		itr = find(scores.rbegin(), scores.rend(), scores[advancingPlace - 1]);
+		vector<int> finalResult(itr, scores.rend());
+		cout << finalResult.size();
+	}
+	else if(scores[0] > advancingPlace) {
+		//remove(scores.begin(), scores.end(), advancingPlace);
+		vector<int>::reverse_iterator itr;
+		itr = find(scores.rbegin(), scores.rend(), scores[advancingPlace-1]);
+		vector<int> finalResult(itr, scores.rend());
+		cout << finalResult.size();
+	}
+	else {
+		cout << 0;
+	}
+	
+}
