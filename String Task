@@ -1,0 +1,22 @@
+/*
+String Task problem can be found in the following link:
+https://codeforces.com/problemset/problem/118/A
+*/
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	string input;
+	getline(cin, input);
+	transform(input.begin(), input.end(), input.begin(), ::tolower);
+	input.erase(
+		std::remove_if(input.begin(), input.end(), [](char chr) { return (chr == 'a' || chr == 'o' || chr == 'y' || chr == 'e' || chr == 'u' || chr == 'i'); }),
+		input.end());
+	for (int i = 0; i < input.length(); i+=2) {
+		input.insert(input.begin() + i, '.');
+	}
+	cout << input << endl;
+}
